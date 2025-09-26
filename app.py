@@ -41,22 +41,7 @@ def display_university_details_st(details):
     Replaces the original print-based function.
     """
     # --- 1. Acceptance Rate Calculation & Display ---
-    try:
-        men_applied = float(details.get("first_time_men_applied") or 0)
-        women_applied = float(details.get("first_time_women_applied") or 0)
-        men_admitted = float(details.get("first_time_men_admitted") or 0)
-        women_admitted = float(details.get("first_time_women_admitted") or 0)
-        total_applied = men_applied + women_applied
-        total_admitted = men_admitted + women_admitted
-        if total_applied > 0:
-            acceptance_rate = (total_admitted / total_applied) * 100
-            st.metric(label="Acceptance Rate", value=f"{acceptance_rate:.2f}%")
-        else:
-            st.warning("Acceptance Rate: Not available (no application data provided)")
-    except (ValueError, TypeError):
-        st.error("Acceptance Rate: Not available (invalid data format)")
-    
-    st.divider()
+   
 
     # --- 2. Admission Factors Display ---
     admissions_factors = details.get("admissions_factors")
